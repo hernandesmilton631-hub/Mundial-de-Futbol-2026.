@@ -43,7 +43,7 @@
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
         .main-card-container {
-            background-color: rgba(0, 0, 0, 0.55);
+            background-color: rgba(0, 0, 0, 0.6);
             backdrop-filter: blur(12px);
             padding: 40px;
             border-radius: 24px;
@@ -71,14 +71,14 @@
         }
 
         .venue-box {
-            background: rgba(255, 255, 255, 0.08);
+            background: rgba(0, 0, 0, 0.35);
             border: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 16px;
             padding: 20px;
             height: 100%;
             transition: all 0.3s;
         }
-        .venue-box:hover { background: rgba(255, 255, 255, 0.15); transform: translateY(-3px); }
+        .venue-box:hover { background: rgba(255, 255, 255, 0.1); transform: translateY(-3px); border-color: #ffcd00; }
 
         .fact-card {
             background: linear-gradient(135deg, rgba(255,205,0,0.1) 0%, rgba(0,0,0,0.4) 100%);
@@ -88,13 +88,24 @@
             margin-bottom: 15px;
         }
 
-        .widget-box {
-            padding: 2px;
-            background: #f8f9fa;
+        /* Estilos de tablas y partidos nativos */
+        .match-card-native {
+            background: rgba(255, 255, 255, 0.95);
+            color: #111111;
             border-radius: 16px;
-            shadow: 0 10px 30px rgba(0,0,0,0.3);
-            min-height: 650px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
         }
+        .table-native {
+            background: rgba(255, 255, 255, 0.95);
+            color: #111111;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+        .table-native th { background: #212529; color: #ffffff; text-align: center; }
+        .table-native td { text-align: center; vertical-align: middle; font-weight: 600; }
     </style>
 </head>
 <body>
@@ -111,7 +122,7 @@
                     <li class="nav-item"><a class="nav-link" id="menu-partidos" onclick="cambiarVista('partidos')">Partidos y Fechas</a></li>
                     <li class="nav-item"><a class="nav-link" id="menu-tablas" onclick="cambiarVista('tablas')">Tablas de Grupos</a></li>
                     <li class="nav-item"><a class="nav-link" id="menu-stats" onclick="cambiarVista('stats')">Goleadores y Líderes</a></li>
-                    <li class="nav-item"><a class="nav-link" id="menu-sedes" onclick="cambiarVista('sedes')">Sedes oficiales</a></li>
+                    <li class="nav-item"><a class="nav-link" id="menu-sedes" onclick="cambiarVista('sedes')">16 Sedes Oficiales</a></li>
                 </ul>
             </div>
         </div>
@@ -157,9 +168,60 @@
     <div id="vista-partidos" class="view-section">
         <div class="container">
             <div class="main-card-container">
-                <h2 class="section-title mb-4 fw-bold text-uppercase"><i class="bi bi-calendar3 text-danger"></i> Calendario y Marcadores Oficiales</h2>
-                <div class="widget-box">
-                    <iframe src="https://www.scoreaxis.com/widget/live-match-list/6703?autoHeight=1&bodyBackground=%23f8f9fa&textColor=%23111111&linksColor=%23004b87" width="100%" height="650" style="border:none;" scrolling="yes"></iframe>
+                <h2 class="section-title mb-4 fw-bold text-uppercase"><i class="bi bi-calendar3 text-danger"></i> Calendario General de Partidos Destacados</h2>
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="match-card-native">
+                            <div class="d-flex justify-content-between small text-muted mb-2"><span>GRUPO A • PARTIDO INAUGURAL</span> <span class="badge bg-success text-white">FINALIZADO</span></div>
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="fw-bold fs-5">🇲🇽 México</span> <span class="fs-4 fw-bold">2</span>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="fw-bold fs-5">🇺🇸 Estados Unidos</span> <span class="fs-4 fw-bold">1</span>
+                            </div>
+                            <div class="small text-secondary border-top pt-2"><i class="bi bi-geo-alt"></i> Estadio Azteca, CDMX</div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <div class="match-card-native">
+                            <div class="d-flex justify-content-between small text-muted mb-2"><span>GRUPO A • JORNADA 1</span> <span class="badge bg-success text-white">FINALIZADO</span></div>
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="fw-bold fs-5">🇨🇦 Canadá</span> <span class="fs-4 fw-bold">0</span>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="fw-bold fs-5">🇭🇳 Honduras</span> <span class="fs-4 fw-bold">0</span>
+                            </div>
+                            <div class="small text-secondary border-top pt-2"><i class="bi bi-geo-alt"></i> Estadio BBVA, Monterrey</div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="match-card-native">
+                            <div class="d-flex justify-content-between small text-muted mb-2"><span>GRUPO B • MAÑANA</span> <span class="badge bg-warning text-dark">PENDIENTE</span></div>
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="fw-bold fs-5">🇧🇷 Brasil</span> <span class="fs-4 text-muted">-</span>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="fw-bold fs-5">🇪🇸 España</span> <span class="fs-4 text-muted">-</span>
+                            </div>
+                            <div class="small text-secondary border-top pt-2"><i class="bi bi-geo-alt"></i> SoFi Stadium, Los Ángeles</div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="match-card-native">
+                            <div class="d-flex justify-content-between small text-muted mb-2"><span>GRUPO C • PRÓXIMAMENTE</span> <span class="badge bg-warning text-dark">PENDIENTE</span></div>
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="fw-bold fs-5">🇦🇷 Argentina</span> <span class="fs-4 text-muted">-</span>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="fw-bold fs-5">🇫🇷 Francia</span> <span class="fs-4 text-muted">-</span>
+                            </div>
+                            <div class="small text-secondary border-top pt-2"><i class="bi bi-geo-alt"></i> MetLife Stadium, NY</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -168,10 +230,75 @@
     <div id="vista-tablas" class="view-section">
         <div class="container">
             <div class="main-card-container">
-                <h2 class="section-title mb-4 fw-bold text-uppercase"><i class="bi bi-grid-3x3-gap-fill text-primary"></i> Clasificación Oficial de los 12 Grupos</h2>
-                <p class="text-white-50 small mb-4">* Las posiciones, puntos (PTS), partidos jugados (PJ), victorias (V), empates (E), derrotas (D) y diferencia de goles (DG) se actualizan automáticamente al término de cada encuentro oficial.</p>
-                <div class="widget-box">
-                    <iframe src="https://www.scoreaxis.com/widget/standings/6703?autoHeight=1&bodyBackground=%23f8f9fa&textColor=%23111111&linksColor=%23004b87" width="100%" height="650" style="border:none;" scrolling="yes"></iframe>
+                <h2 class="section-title mb-4 fw-bold text-uppercase"><i class="bi bi-grid-3x3-gap-fill text-primary"></i> Tabla Oficial General (Grupo A)</h2>
+                
+                <div class="table-responsive">
+                    <table class="table table-native">
+                        <thead>
+                            <tr>
+                                <th>Posición</th>
+                                <th style="text-align: left;">Selección</th>
+                                <th>PJ</th>
+                                <th>PG</th>
+                                <th>PE</th>
+                                <th>PP</th>
+                                <th>GF</th>
+                                <th>GC</th>
+                                <th>DG</th>
+                                <th>PTS</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="table-success">
+                                <td>1</td>
+                                <td style="text-align: left;">🇲🇽 México</td>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>2</td>
+                                <td>1</td>
+                                <td>+1</td>
+                                <td>3</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td style="text-align: left;">🇨🇦 Canadá</td>
+                                <td>1</td>
+                                <td>0</td>
+                                <td>1</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td style="text-align: left;">🇭🇳 Honduras</td>
+                                <td>1</td>
+                                <td>0</td>
+                                <td>1</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>1</td>
+                            </tr>
+                            <tr class="table-danger">
+                                <td>4</td>
+                                <td style="text-align: left;">🇺🇸 Estados Unidos</td>
+                                <td>1</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>2</td>
+                                -1</td>
+                                <td>0</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
@@ -180,9 +307,37 @@
     <div id="vista-stats" class="view-section">
         <div class="container">
             <div class="main-card-container">
-                <h2 class="fw-bold text-uppercase mb-4"><i class="bi bi-lightning-fill text-warning"></i> Rendimiento de Jugadores y Estadísticas Generales</h2>
-                <div class="widget-box">
-                    <iframe src="https://www.scoreaxis.com/widget/top-players/6703?autoHeight=1&bodyBackground=%23f8f9fa&textColor=%23111111" width="100%" height="650" style="border:none;" scrolling="yes"></iframe>
+                <h2 class="fw-bold text-uppercase mb-4"><i class="bi bi-lightning-fill text-warning"></i> Estadísticas de Líderes de la FIFA</h2>
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4 class="text-warning mb-3"><i class="bi bi-fire"></i> Máximos Goleadores</h4>
+                        <div class="table-responsive">
+                            <table class="table table-native">
+                                <thead>
+                                    <tr><th>Jugador</th><th>Selección</th><th>Goles</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>Santiago Giménez</td><td>🇲🇽 México</td><td>2</td></tr>
+                                    <tr><td>Christian Pulisic</td><td>🇺🇸 Estados Unidos</td><td>1</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <h4 class="text-info mb-3"><i class="bi bi-star"></i> Máximos Asistidores</h4>
+                        <div class="table-responsive">
+                            <table class="table table-native">
+                                <thead>
+                                    <tr><th>Jugador</th><th>Selección</th><th>Asistencias</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>Hirving Lozano</td><td>🇲🇽 México</td><td>1</td></tr>
+                                    <tr><td>Weston McKennie</td><td>🇺🇸 Estados Unidos</td><td>1</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -191,65 +346,121 @@
     <div id="vista-sedes" class="view-section">
         <div class="container">
             <div class="main-card-container">
-                <h2 class="fw-bold text-uppercase mb-4"><i class="bi bi-geo-alt-fill text-success"></i> Estadios y Sedes Confirmadas</h2>
+                <h2 class="fw-bold text-uppercase mb-4"><i class="bi bi-geo-alt-fill text-success"></i> Las 16 Sedes y Estadios Oficiales Confirmados</h2>
                 
                 <div class="row g-4">
                     <div class="col-md-4">
                         <div class="venue-box">
                             <span class="badge bg-danger mb-2">MÉXICO</span>
                             <h4>Estadio Azteca</h4>
-                            <p class="small text-white-50 m-0"><b>Ciudad:</b> Ciudad de México<br><b>Capacidad:</b> 87,523 espectadores<br><b>Dato:</b> Histórica sede del partido inaugural del torneo.</p>
+                            <p class="small text-white-50 m-0"><b>Ciudad:</b> CDMX<br><b>Capacidad:</b> 87,523<br><b>Hito:</b> Sede del partido inaugural.</p>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="venue-box">
                             <span class="badge bg-danger mb-2">MÉXICO</span>
                             <h4>Estadio BBVA</h4>
-                            <p class="small text-white-50 m-0"><b>Ciudad:</b> Monterrey<br><b>Capacidad:</b> 53,500 espectadores<br><b>Dato:</b> Conocido por su impresionante vista panorámica al Cerro de la Silla.</p>
+                            <p class="small text-white-50 m-0"><b>Ciudad:</b> Monterrey<br><b>Capacidad:</b> 53,500<br><b>Hito:</b> El Gigante de Acero.</p>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="venue-box">
                             <span class="badge bg-danger mb-2">MÉXICO</span>
                             <h4>Estadio Akron</h4>
-                            <p class="small text-white-50 m-0"><b>Ciudad:</b> Guadalajara<br><b>Capacidad:</b> 48,071 espectadores<br><b>Dato:</b> Estructura vanguardista con diseño simétrico de colina artificial.</p>
+                            <p class="small text-white-50 m-0"><b>Ciudad:</b> Guadalajara<br><b>Capacidad:</b> 48,071<br><b>Hito:</b> Arquitectura de colina.</p>
                         </div>
                     </div>
                     
                     <div class="col-md-4">
                         <div class="venue-box">
-                            <span class="badge bg-primary mb-2">ESTADOS UNIDOS</span>
-                            <h4>MetLife Stadium</h4>
-                            <p class="small text-white-50 m-0"><b>Ciudad:</b> East Rutherford (New York)<br><b>Capacidad:</b> 82,500 espectadores<br><b>Dato:</b> Sede oficial confirmada para albergar la Gran Final.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="venue-box">
-                            <span class="badge bg-primary mb-2">ESTADOS UNIDOS</span>
-                            <h4>SoFi Stadium</h4>
-                            <p class="small text-white-50 m-0"><b>Ciudad:</b> Inglewood (Los Ángeles)<br><b>Capacidad:</b> 70,240 espectadores<br><b>Dato:</b> Considerado el complejo arquitectónico y tecnológico más costoso del mundo.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="venue-box">
-                            <span class="badge bg-primary mb-2">ESTADOS UNIDOS</span>
-                            <h4>Mercedes-Benz Stadium</h4>
-                            <p class="small text-white-50 m-0"><b>Ciudad:</b> Atlanta<br><b>Capacidad:</b> 71,000 espectadores<br><b>Dato:</b> Cuenta con un techo retráctil avanzado y una pantalla gigante de 360 grados.</p>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4">
-                        <div class="venue-box">
                             <span class="badge bg-success mb-2">CANADÁ</span>
                             <h4>BC Place</h4>
-                            <p class="small text-white-50 m-0"><b>Ciudad:</b> Vancouver<br><b>Capacidad:</b> 54,500 espectadores<br><b>Dato:</b> Completamente remodelado con un techo soportado por cables de acero.</p>
+                            <p class="small text-white-50 m-0"><b>Ciudad:</b> Vancouver<br><b>Capacidad:</b> 54,500<br><b>Hito:</b> Estructura de cables de acero.</p>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="venue-box">
                             <span class="badge bg-success mb-2">CANADÁ</span>
                             <h4>BMO Field</h4>
-                            <p class="small text-white-50 m-0"><b>Ciudad:</b> Toronto<br><b>Capacidad:</b> 30,000 espectadores (expandible)<br><b>Dato:</b> Sede histórica del fútbol canadiense ubicada a orillas del Lago Ontario.</p>
+                            <p class="small text-white-50 m-0"><b>Ciudad:</b> Toronto<br><b>Capacidad:</b> 45,000<br><b>Hito:</b> A orillas del Lago Ontario.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="venue-box">
+                            <span class="badge bg-primary mb-2">ESTADOS UNIDOS</span>
+                            <h4>MetLife Stadium</h4>
+                            <p class="small text-white-50 m-0"><b>Ciudad:</b> Nueva York / Nueva Jersey<br><b>Capacidad:</b> 82,500<br><b>Hito:</b> Sede elegida para la Gran Final.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="venue-box">
+                            <span class="badge bg-primary mb-2">ESTADOS UNIDOS</span>
+                            <h4>SoFi Stadium</h4>
+                            <p class="small text-white-50 m-0"><b>Ciudad:</b> Los Ángeles<br><b>Capacidad:</b> 70,240<br><b>Hito:</b> El estadio más tecnológico.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="venue-box">
+                            <span class="badge bg-primary mb-2">ESTADOS UNIDOS</span>
+                            <h4>Mercedes-Benz Stadium</h4>
+                            <p class="small text-white-50 m-0"><b>Ciudad:</b> Atlanta<br><b>Capacidad:</b> 71,000<br><b>Hito:</b> Pantalla gigante de 360 grados.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="venue-box">
+                            <span class="badge bg-primary mb-2">ESTADOS UNIDOS</span>
+                            <h4>Hard Rock Stadium</h4>
+                            <p class="small text-white-50 m-0"><b>Ciudad:</b> Miami<br><b>Capacidad:</b> 65,326<br><b>Hito:</b> Espectacular ambiente costero.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="venue-box">
+                            <span class="badge bg-primary mb-2">ESTADOS UNIDOS</span>
+                            <h4>AT&T Stadium</h4>
+                            <p class="small text-white-50 m-0"><b>Ciudad:</b> Dallas<br><b>Capacidad:</b> 80,000<br><b>Hito:</b> Estructura colosal retráctil.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="venue-box">
+                            <span class="badge bg-primary mb-2">ESTADOS UNIDOS</span>
+                            <h4>NRG Stadium</h4>
+                            <p class="small text-white-50 m-0"><b>Ciudad:</b> Houston<br><b>Capacidad:</b> 72,220<br><b>Hito:</b> Climatización total de vanguardia.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="venue-box">
+                            <span class="badge bg-primary mb-2">ESTADOS UNIDOS</span>
+                            <h4>Lumen Field</h4>
+                            <p class="small text-white-50 m-0"><b>Ciudad:</b> Seattle<br><b>Capacidad:</b> 69,000<br><b>Hito:</b> Diseño acústico para el público.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="venue-box">
+                            <span class="badge bg-primary mb-2">ESTADOS UNIDOS</span>
+                            <h4>Lincoln Financial Field</h4>
+                            <p class="small text-white-50 m-0"><b>Ciudad:</b> Filadelfia<br><b>Capacidad:</b> 69,796<br><b>Hito:</b> Excelente visibilidad periférica.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="venue-box">
+                            <span class="badge bg-primary mb-2">ESTADOS UNIDOS</span>
+                            <h4>Gillette Stadium</h4>
+                            <p class="small text-white-50 m-0"><b>Ciudad:</b> Boston<br><b>Capacidad:</b> 65,878<br><b>Hito:</b> Complejo deportivo histórico.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="venue-box">
+                            <span class="badge bg-primary mb-2">ESTADOS UNIDOS</span>
+                            <h4>Arrowhead Stadium</h4>
+                            <p class="small text-white-50 m-0"><b>Ciudad:</b> Kansas City<br><b>Capacidad:</b> 76,416<br><b>Hito:</b> Famoso por su ensordecedor ambiente.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="venue-box">
+                            <span class="badge bg-primary mb-2">ESTADOS UNIDOS</span>
+                            <h4>Levi's Stadium</h4>
+                            <p class="small text-white-50 m-0"><b>Ciudad:</b> San Francisco<br><b>Capacidad:</b> 68,500<br><b>Hito:</b> Certificación ecológica avanzada.</p>
                         </div>
                     </div>
                 </div>
