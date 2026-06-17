@@ -1,139 +1,143 @@
-
-
 const partidos = [
 
 {
 numero:1,
-fase:"Fase de grupos",
-grupo:"Grupo A",
+fase:"Grupos",
+grupo:"A",
 fecha:"11 Junio 2026",
-hora:"13:00",
+hora:"15:00",
 local:"México",
 visitante:"Sudáfrica",
-estadio:"Estadio Azteca",
-ciudad:"Ciudad de México"
+estadio:"Estadio Ciudad de México",
+ciudad:"Ciudad de México",
+resultado:"2-0",
+estado:"Finalizado"
 },
-
 
 {
 numero:2,
-fase:"Fase de grupos",
-grupo:"Grupo A",
-fecha:"12 Junio 2026",
-hora:"16:00",
+fase:"Grupos",
+grupo:"A",
+fecha:"11 Junio 2026",
+hora:"22:00",
 local:"Corea del Sur",
-visitante:"Equipo clasificado",
-estadio:"Estadio oficial",
-ciudad:"Canadá"
+visitante:"Chequia",
+estadio:"Estadio Guadalajara",
+ciudad:"Guadalajara",
+resultado:"2-1",
+estado:"Finalizado"
 },
-
 
 {
 numero:3,
-fase:"Fase de grupos",
-grupo:"Grupo B",
+fase:"Grupos",
+grupo:"B",
 fecha:"12 Junio 2026",
-hora:"19:00",
+hora:"15:00",
 local:"Canadá",
-visitante:"Equipo clasificado",
-estadio:"BMO Field",
-ciudad:"Toronto"
+visitante:"Bosnia y Herzegovina",
+estadio:"Estadio Toronto",
+ciudad:"Toronto",
+resultado:"1-1",
+estado:"Finalizado"
 },
-
 
 {
 numero:4,
-fase:"Fase de grupos",
-grupo:"Grupo C",
-fecha:"13 Junio 2026",
-hora:"14:00",
+fase:"Grupos",
+grupo:"D",
+fecha:"12 Junio 2026",
+hora:"21:00",
 local:"Estados Unidos",
-visitante:"Equipo clasificado",
-estadio:"MetLife Stadium",
-ciudad:"Nueva York/Nueva Jersey"
-}
+visitante:"Paraguay",
+estadio:"Estadio Los Ángeles",
+ciudad:"Los Ángeles",
+resultado:"4-1",
+estado:"Finalizado"
+},
 
+{
+numero:5,
+fase:"Grupos",
+grupo:"B",
+fecha:"13 Junio 2026",
+hora:"18:00",
+local:"Qatar",
+visitante:"Suiza",
+estadio:"Estadio Área de la Bahía",
+ciudad:"San Francisco",
+resultado:"1-1",
+estado:"Finalizado"
+},
+
+{
+numero:6,
+fase:"Grupos",
+grupo:"C",
+fecha:"13 Junio 2026",
+hora:"18:00",
+local:"Brasil",
+visitante:"Marruecos",
+estadio:"Estadio Nueva York/Nueva Jersey",
+ciudad:"Nueva York",
+resultado:"1-1",
+estado:"Finalizado"
+},
+
+{
+numero:7,
+fase:"Grupos",
+grupo:"C",
+fecha:"13 Junio 2026",
+hora:"21:00",
+local:"Haití",
+visitante:"Escocia",
+estadio:"Estadio Boston",
+ciudad:"Boston",
+resultado:"Pendiente",
+estado:"Próximo"
+},
+
+{
+numero:8,
+fase:"Grupos",
+grupo:"D",
+fecha:"13 Junio 2026",
+hora:"00:00",
+local:"Australia",
+visitante:"Turquía",
+estadio:"BC Place",
+ciudad:"Vancouver",
+resultado:"Pendiente",
+estado:"Próximo"
+},
+
+{
+numero:9,
+fase:"Grupos",
+grupo:"G",
+fecha:"14 Junio 2026",
+hora:"15:00",
+local:"Bélgica",
+visitante:"Egipto",
+estadio:"Estadio oficial",
+ciudad:"Estados Unidos",
+resultado:"Pendiente",
+estado:"Próximo"
+},
+
+{
+numero:10,
+fase:"Grupos",
+grupo:"G",
+fecha:"14 Junio 2026",
+hora:"18:00",
+local:"Irán",
+visitante:"Nueva Zelanda",
+estadio:"Estadio oficial",
+ciudad:"Estados Unidos",
+resultado:"Pendiente",
+estado:"Próximo"
+}
 
 ];
-
-
-
-
-// Mostrar partidos en la página
-
-function cargarPartidos(){
-
-
-let contenedor =
-document.getElementById("listaPartidos");
-
-
-if(!contenedor){
-return;
-}
-
-
-
-partidos.forEach(partido=>{
-
-
-contenedor.innerHTML += `
-
-
-<div class="match">
-
-
-<h3>
-🏆 Partido ${partido.numero}
-</h3>
-
-
-<h4>
-${partido.local}
- VS 
-${partido.visitante}
-</h4>
-
-
-<p>
-🌎 ${partido.grupo}
-</p>
-
-
-<p>
-📅 ${partido.fecha}
-</p>
-
-
-<p>
-⏰ ${partido.hora}
-</p>
-
-
-<p>
-🏟️ ${partido.estadio}
-</p>
-
-
-<p>
-📍 ${partido.ciudad}
-</p>
-
-
-</div>
-
-
-`;
-
-
-});
-
-
-}
-
-
-
-document.addEventListener(
-"DOMContentLoaded",
-cargarPartidos
-);
