@@ -43,7 +43,7 @@
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
         .main-card-container {
-            background-color: rgba(0, 0, 0, 0.6);
+            background-color: rgba(0, 0, 0, 0.65);
             backdrop-filter: blur(12px);
             padding: 40px;
             border-radius: 24px;
@@ -71,7 +71,7 @@
         }
 
         .venue-box {
-            background: rgba(0, 0, 0, 0.35);
+            background: rgba(0, 0, 0, 0.4);
             border: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 16px;
             padding: 20px;
@@ -88,24 +88,35 @@
             margin-bottom: 15px;
         }
 
-        /* Estilos de tablas y partidos nativos */
         .match-card-native {
             background: rgba(255, 255, 255, 0.95);
             color: #111111;
             border-radius: 16px;
-            padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
+        
         .table-native {
             background: rgba(255, 255, 255, 0.95);
             color: #111111;
             border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
         }
         .table-native th { background: #212529; color: #ffffff; text-align: center; }
         .table-native td { text-align: center; vertical-align: middle; font-weight: 600; }
+
+        .nav-pills .nav-link {
+            background: rgba(255,255,255,0.1);
+            color: white !important;
+            margin: 5px;
+            border-radius: 8px;
+        }
+        .nav-pills .nav-link.active {
+            background: #ffcd00 !important;
+            color: black !important;
+            text-decoration: none !important;
+        }
     </style>
 </head>
 <body>
@@ -119,10 +130,10 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item"><a class="nav-link active" id="menu-inicio" onclick="cambiarVista('inicio')">Información General</a></li>
-                    <li class="nav-item"><a class="nav-link" id="menu-partidos" onclick="cambiarVista('partidos')">Partidos y Fechas</a></li>
+                    <li class="nav-item"><a class="nav-link" id="menu-partidos" onclick="cambiarVista('partidos')">104 Partidos</a></li>
                     <li class="nav-item"><a class="nav-link" id="menu-tablas" onclick="cambiarVista('tablas')">Tablas de Grupos</a></li>
-                    <li class="nav-item"><a class="nav-link" id="menu-stats" onclick="cambiarVista('stats')">Goleadores y Líderes</a></li>
-                    <li class="nav-item"><a class="nav-link" id="menu-sedes" onclick="cambiarVista('sedes')">16 Sedes Oficiales</a></li>
+                    <li class="nav-item"><a class="nav-link" id="menu-stats" onclick="cambiarVista('stats')">Líderes Oficiales</a></li>
+                    <li class="nav-item"><a class="nav-link" id="menu-sedes" onclick="cambiarVista('sedes')">16 Sedes Reales</a></li>
                 </ul>
             </div>
         </div>
@@ -146,344 +157,35 @@
                     La <b>Copa Mundial de la FIFA 2026™</b> marca una evolución sin precedentes en el deporte rey. Por primera vez en la historia, el certamen cuenta con la participación de <b>48 selecciones nacionales</b> en lugar de las tradicionales 32, distribuidas estratégicamente en 12 grupos de 4 equipos cada uno. La competencia se extiende a lo largo de Norteamérica, unificando la infraestructura deportiva de vanguardia de Canadá, Estados Unidos y México para albergar un formato de eliminación directa expandido que arranca desde los Dieciseisavos de Final.
                 </p>
             </div>
-
-            <div class="main-card-container">
-                <h3 class="fw-bold mb-4 text-uppercase text-warning"><i class="bi bi-lightbulb-fill"></i> Datos Curiosos e Históricos del Torneo</h3>
-                <div class="fact-card">
-                    <h5><i class="bi bi-star-fill text-warning"></i> El Record Absoluto del Estadio Azteca</h5>
-                    <p class="m-0 text-white-50">El Coloso de Santa Úrsula en la Ciudad de México se convierte de forma oficial en el único estadio del planeta en albergar tres partidos inaugurales de la Copa del Mundo de la FIFA (1970, 1986 y 2026).</p>
-                </div>
-                <div class="fact-card">
-                    <h5><i class="bi bi-shield-fill-check text-info"></i> Formato de Clasificación de Mejores Terceros</h5>
-                    <p class="m-0 text-white-50">Con la adición de los 12 grupos oficiales, no solo clasifican los dos primeros lugares; los 8 mejores terceros lugares de toda la fase grupal obtienen un boleto directo a la ronda eliminatoria.</p>
-                </div>
-                <div class="fact-card">
-                    <h5><i class="bi bi-trophy-fill text-success"></i> La Sede de la Final Definitiva</h5>
-                    <p class="m-0 text-white-50">El campeón del mundo se coronará en el imponente MetLife Stadium de East Rutherford, Nueva Jersey, el cual cuenta con un aforo oficial verificado para más de 82,500 espectadores en configuración de fútbol.</p>
-                </div>
-            </div>
         </div>
     </div>
 
     <div id="vista-partidos" class="view-section">
         <div class="container">
             <div class="main-card-container">
-                <h2 class="section-title mb-4 fw-bold text-uppercase"><i class="bi bi-calendar3 text-danger"></i> Calendario General de Partidos Destacados</h2>
+                <h2 class="section-title mb-4 fw-bold text-uppercase text-warning"><i class="bi bi-calendar3"></i> Calendario Completo de los 104 Partidos</h2>
                 
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="match-card-native">
-                            <div class="d-flex justify-content-between small text-muted mb-2"><span>GRUPO A • PARTIDO INAUGURAL</span> <span class="badge bg-success text-white">FINALIZADO</span></div>
-                            <div class="d-flex justify-content-between align-items-center mb-2">
-                                <span class="fw-bold fs-5">🇲🇽 México</span> <span class="fs-4 fw-bold">2</span>
-                            </div>
-                            <div class="d-flex justify-content-between align-items-center mb-3">
-                                <span class="fw-bold fs-5">🇺🇸 Estados Unidos</span> <span class="fs-4 fw-bold">1</span>
-                            </div>
-                            <div class="small text-secondary border-top pt-2"><i class="bi bi-geo-alt"></i> Estadio Azteca, CDMX</div>
-                        </div>
-                    </div>
-                    
-                    <div class="col-md-6">
-                        <div class="match-card-native">
-                            <div class="d-flex justify-content-between small text-muted mb-2"><span>GRUPO A • JORNADA 1</span> <span class="badge bg-success text-white">FINALIZADO</span></div>
-                            <div class="d-flex justify-content-between align-items-center mb-2">
-                                <span class="fw-bold fs-5">🇨🇦 Canadá</span> <span class="fs-4 fw-bold">0</span>
-                            </div>
-                            <div class="d-flex justify-content-between align-items-center mb-3">
-                                <span class="fw-bold fs-5">🇭🇳 Honduras</span> <span class="fs-4 fw-bold">0</span>
-                            </div>
-                            <div class="small text-secondary border-top pt-2"><i class="bi bi-geo-alt"></i> Estadio BBVA, Monterrey</div>
-                        </div>
-                    </div>
+                <ul class="nav nav-pills mb-4 justify-content-center" id="pills-tab" role="tablist">
+                    <li class="nav-item"><button class="nav-link active" data-bs-toggle="pill" data-bs-target="#jornada1">Jornada 1 (Partidos 1-24)</button></li>
+                    <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#jornada2">Jornada 2 (Partidos 25-48)</button></li>
+                    <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#jornada3">Jornada 3 (Partidos 49-72)</button></li>
+                    <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#eliminatorias">Fases Finales (73-104)</button></li>
+                </ul>
 
-                    <div class="col-md-6">
-                        <div class="match-card-native">
-                            <div class="d-flex justify-content-between small text-muted mb-2"><span>GRUPO B • MAÑANA</span> <span class="badge bg-warning text-dark">PENDIENTE</span></div>
-                            <div class="d-flex justify-content-between align-items-center mb-2">
-                                <span class="fw-bold fs-5">🇧🇷 Brasil</span> <span class="fs-4 text-muted">-</span>
-                            </div>
-                            <div class="d-flex justify-content-between align-items-center mb-3">
-                                <span class="fw-bold fs-5">🇪🇸 España</span> <span class="fs-4 text-muted">-</span>
-                            </div>
-                            <div class="small text-secondary border-top pt-2"><i class="bi bi-geo-alt"></i> SoFi Stadium, Los Ángeles</div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6">
-                        <div class="match-card-native">
-                            <div class="d-flex justify-content-between small text-muted mb-2"><span>GRUPO C • PRÓXIMAMENTE</span> <span class="badge bg-warning text-dark">PENDIENTE</span></div>
-                            <div class="d-flex justify-content-between align-items-center mb-2">
-                                <span class="fw-bold fs-5">🇦🇷 Argentina</span> <span class="fs-4 text-muted">-</span>
-                            </div>
-                            <div class="d-flex justify-content-between align-items-center mb-3">
-                                <span class="fw-bold fs-5">🇫🇷 Francia</span> <span class="fs-4 text-muted">-</span>
-                            </div>
-                            <div class="small text-secondary border-top pt-2"><i class="bi bi-geo-alt"></i> MetLife Stadium, NY</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="vista-tablas" class="view-section">
-        <div class="container">
-            <div class="main-card-container">
-                <h2 class="section-title mb-4 fw-bold text-uppercase"><i class="bi bi-grid-3x3-gap-fill text-primary"></i> Tabla Oficial General (Grupo A)</h2>
-                
-                <div class="table-responsive">
-                    <table class="table table-native">
-                        <thead>
-                            <tr>
-                                <th>Posición</th>
-                                <th style="text-align: left;">Selección</th>
-                                <th>PJ</th>
-                                <th>PG</th>
-                                <th>PE</th>
-                                <th>PP</th>
-                                <th>GF</th>
-                                <th>GC</th>
-                                <th>DG</th>
-                                <th>PTS</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="table-success">
-                                <td>1</td>
-                                <td style="text-align: left;">🇲🇽 México</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>0</td>
-                                <td>0</td>
-                                <td>2</td>
-                                <td>1</td>
-                                <td>+1</td>
-                                <td>3</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td style="text-align: left;">🇨🇦 Canadá</td>
-                                <td>1</td>
-                                <td>0</td>
-                                <td>1</td>
-                                <td>0</td>
-                                <td>0</td>
-                                <td>0</td>
-                                <td>0</td>
-                                <td>1</td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td style="text-align: left;">🇭🇳 Honduras</td>
-                                <td>1</td>
-                                <td>0</td>
-                                <td>1</td>
-                                <td>0</td>
-                                <td>0</td>
-                                <td>0</td>
-                                <td>0</td>
-                                <td>1</td>
-                            </tr>
-                            <tr class="table-danger">
-                                <td>4</td>
-                                <td style="text-align: left;">🇺🇸 Estados Unidos</td>
-                                <td>1</td>
-                                <td>0</td>
-                                <td>0</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>2</td>
-                                -1</td>
-                                <td>0</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="vista-stats" class="view-section">
-        <div class="container">
-            <div class="main-card-container">
-                <h2 class="fw-bold text-uppercase mb-4"><i class="bi bi-lightning-fill text-warning"></i> Estadísticas de Líderes de la FIFA</h2>
-                
-                <div class="row">
-                    <div class="col-md-6">
-                        <h4 class="text-warning mb-3"><i class="bi bi-fire"></i> Máximos Goleadores</h4>
-                        <div class="table-responsive">
-                            <table class="table table-native">
-                                <thead>
-                                    <tr><th>Jugador</th><th>Selección</th><th>Goles</th></tr>
-                                </thead>
-                                <tbody>
-                                    <tr><td>Santiago Giménez</td><td>🇲🇽 México</td><td>2</td></tr>
-                                    <tr><td>Christian Pulisic</td><td>🇺🇸 Estados Unidos</td><td>1</td></tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <h4 class="text-info mb-3"><i class="bi bi-star"></i> Máximos Asistidores</h4>
-                        <div class="table-responsive">
-                            <table class="table table-native">
-                                <thead>
-                                    <tr><th>Jugador</th><th>Selección</th><th>Asistencias</th></tr>
-                                </thead>
-                                <tbody>
-                                    <tr><td>Hirving Lozano</td><td>🇲🇽 México</td><td>1</td></tr>
-                                    <tr><td>Weston McKennie</td><td>🇺🇸 Estados Unidos</td><td>1</td></tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="vista-sedes" class="view-section">
-        <div class="container">
-            <div class="main-card-container">
-                <h2 class="fw-bold text-uppercase mb-4"><i class="bi bi-geo-alt-fill text-success"></i> Las 16 Sedes y Estadios Oficiales Confirmados</h2>
-                
-                <div class="row g-4">
-                    <div class="col-md-4">
-                        <div class="venue-box">
-                            <span class="badge bg-danger mb-2">MÉXICO</span>
-                            <h4>Estadio Azteca</h4>
-                            <p class="small text-white-50 m-0"><b>Ciudad:</b> CDMX<br><b>Capacidad:</b> 87,523<br><b>Hito:</b> Sede del partido inaugural.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="venue-box">
-                            <span class="badge bg-danger mb-2">MÉXICO</span>
-                            <h4>Estadio BBVA</h4>
-                            <p class="small text-white-50 m-0"><b>Ciudad:</b> Monterrey<br><b>Capacidad:</b> 53,500<br><b>Hito:</b> El Gigante de Acero.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="venue-box">
-                            <span class="badge bg-danger mb-2">MÉXICO</span>
-                            <h4>Estadio Akron</h4>
-                            <p class="small text-white-50 m-0"><b>Ciudad:</b> Guadalajara<br><b>Capacidad:</b> 48,071<br><b>Hito:</b> Arquitectura de colina.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="col-md-4">
-                        <div class="venue-box">
-                            <span class="badge bg-success mb-2">CANADÁ</span>
-                            <h4>BC Place</h4>
-                            <p class="small text-white-50 m-0"><b>Ciudad:</b> Vancouver<br><b>Capacidad:</b> 54,500<br><b>Hito:</b> Estructura de cables de acero.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="venue-box">
-                            <span class="badge bg-success mb-2">CANADÁ</span>
-                            <h4>BMO Field</h4>
-                            <p class="small text-white-50 m-0"><b>Ciudad:</b> Toronto<br><b>Capacidad:</b> 45,000<br><b>Hito:</b> A orillas del Lago Ontario.</p>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4">
-                        <div class="venue-box">
-                            <span class="badge bg-primary mb-2">ESTADOS UNIDOS</span>
-                            <h4>MetLife Stadium</h4>
-                            <p class="small text-white-50 m-0"><b>Ciudad:</b> Nueva York / Nueva Jersey<br><b>Capacidad:</b> 82,500<br><b>Hito:</b> Sede elegida para la Gran Final.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="venue-box">
-                            <span class="badge bg-primary mb-2">ESTADOS UNIDOS</span>
-                            <h4>SoFi Stadium</h4>
-                            <p class="small text-white-50 m-0"><b>Ciudad:</b> Los Ángeles<br><b>Capacidad:</b> 70,240<br><b>Hito:</b> El estadio más tecnológico.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="venue-box">
-                            <span class="badge bg-primary mb-2">ESTADOS UNIDOS</span>
-                            <h4>Mercedes-Benz Stadium</h4>
-                            <p class="small text-white-50 m-0"><b>Ciudad:</b> Atlanta<br><b>Capacidad:</b> 71,000<br><b>Hito:</b> Pantalla gigante de 360 grados.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="venue-box">
-                            <span class="badge bg-primary mb-2">ESTADOS UNIDOS</span>
-                            <h4>Hard Rock Stadium</h4>
-                            <p class="small text-white-50 m-0"><b>Ciudad:</b> Miami<br><b>Capacidad:</b> 65,326<br><b>Hito:</b> Espectacular ambiente costero.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="venue-box">
-                            <span class="badge bg-primary mb-2">ESTADOS UNIDOS</span>
-                            <h4>AT&T Stadium</h4>
-                            <p class="small text-white-50 m-0"><b>Ciudad:</b> Dallas<br><b>Capacidad:</b> 80,000<br><b>Hito:</b> Estructura colosal retráctil.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="venue-box">
-                            <span class="badge bg-primary mb-2">ESTADOS UNIDOS</span>
-                            <h4>NRG Stadium</h4>
-                            <p class="small text-white-50 m-0"><b>Ciudad:</b> Houston<br><b>Capacidad:</b> 72,220<br><b>Hito:</b> Climatización total de vanguardia.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="venue-box">
-                            <span class="badge bg-primary mb-2">ESTADOS UNIDOS</span>
-                            <h4>Lumen Field</h4>
-                            <p class="small text-white-50 m-0"><b>Ciudad:</b> Seattle<br><b>Capacidad:</b> 69,000<br><b>Hito:</b> Diseño acústico para el público.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="venue-box">
-                            <span class="badge bg-primary mb-2">ESTADOS UNIDOS</span>
-                            <h4>Lincoln Financial Field</h4>
-                            <p class="small text-white-50 m-0"><b>Ciudad:</b> Filadelfia<br><b>Capacidad:</b> 69,796<br><b>Hito:</b> Excelente visibilidad periférica.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="venue-box">
-                            <span class="badge bg-primary mb-2">ESTADOS UNIDOS</span>
-                            <h4>Gillette Stadium</h4>
-                            <p class="small text-white-50 m-0"><b>Ciudad:</b> Boston<br><b>Capacidad:</b> 65,878<br><b>Hito:</b> Complejo deportivo histórico.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="venue-box">
-                            <span class="badge bg-primary mb-2">ESTADOS UNIDOS</span>
-                            <h4>Arrowhead Stadium</h4>
-                            <p class="small text-white-50 m-0"><b>Ciudad:</b> Kansas City<br><b>Capacidad:</b> 76,416<br><b>Hito:</b> Famoso por su ensordecedor ambiente.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="venue-box">
-                            <span class="badge bg-primary mb-2">ESTADOS UNIDOS</span>
-                            <h4>Levi's Stadium</h4>
-                            <p class="small text-white-50 m-0"><b>Ciudad:</b> San Francisco<br><b>Capacidad:</b> 68,500<br><b>Hito:</b> Certificación ecológica avanzada.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        function cambiarVista(nombreVista) {
-            document.querySelectorAll('.view-section').forEach(seccion => {
-                seccion.classList.remove('active-view');
-            });
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.classList.remove('active');
-            });
-
-            document.getElementById(`vista-${nombreVista}`).classList.add('active-view');
-            if(document.getElementById(`menu-${nombreVista}`)) {
-                document.getElementById(`menu-${nombreVista}`).classList.add('active');
-            }
-            window.scrollTo(0, 0);
-        }
-    </script>
-</body>
-</html>
+                <div class="tab-content">
+                    <div class="tab-pane fade show active" id="jornada1">
+                        <div class="row g-3">
+                            <div class="col-md-4"><div class="match-card-native"><b>P1 (11 Jun):</b> 🇲🇽 México vs 🇿🇦 Sudáfrica</div></div>
+                            <div class="col-md-4"><div class="match-card-native"><b>P2 (11 Jun):</b> 🇰🇷 Corea Sur vs 🇨🇿 Chequia</div></div>
+                            <div class="col-md-4"><div class="match-card-native"><b>P3 (12 Jun):</b> 🇨🇦 Canadá vs 🇧🇦 Bosnia</div></div>
+                            <div class="col-md-4"><div class="match-card-native"><b>P4 (12 Jun):</b> 🇺🇸 EE. UU. vs 🇵🇾 Paraguay</div></div>
+                            <div class="col-md-4"><div class="match-card-native"><b>P5 (13 Jun):</b> 🇭🇹 Haití vs 🏴󠁧󠁢󠁳󠁣󠁴󠁿 Escocia</div></div>
+                            <div class="col-md-4"><div class="match-card-native"><b>P6 (13 Jun):</b> 🇦🇺 Australia vs 🇹🇷 Turquía</div></div>
+                            <div class="col-md-4"><div class="match-card-native"><b>P7 (13 Jun):</b> 🇧🇷 Brasil vs 🇲🇦 Marruecos</div></div>
+                            <div class="col-md-4"><div class="match-card-native"><b>P8 (13 Jun):</b> 🇶🇦 Catar vs 🇨🇭 Suiza</div></div>
+                            <div class="col-md-4"><div class="match-card-native"><b>P9 (14 Jun):</b> 🇨🇮 C. Marfil vs 🇪🇨 Ecuador</div></div>
+                            <div class="col-md-4"><div class="match-card-native"><b>P10 (14 Jun):</b> 🇩🇪 Alemania vs 🇨🇼 Curazao</div></div>
+                            <div class="col-md-4"><div class="match-card-native"><b>P11 (14 Jun):</b> 🇳🇱 Países Bajos vs 🇯🇵 Japón</div></div>
+                            <div class="col-md-4"><div class="match-card-native"><b>P12 (14 Jun):</b> 🇸🇪 Suecia vs 🇹🇳 Túnez</div></div>
+                            <div class="col-md-4"><div class="match-card-native"><b>P13 (15 Jun):</b> 🇸🇦 Arabia S. vs 🇺🇾 Uruguay</div></div>
+                            <div class="col-md-4"><div class="match
