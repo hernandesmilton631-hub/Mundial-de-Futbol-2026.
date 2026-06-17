@@ -17,6 +17,7 @@
             animation: gradientMove 15s ease infinite;
             background-attachment: fixed;
             color: #ffffff;
+            padding-top: 20px;
         }
 
         @keyframes gradientMove {
@@ -25,7 +26,7 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* Barra de contacto superior restaurada */
+        /* Barra de contacto superior oficial fija */
         .top-bar {
             background-color: rgba(0, 0, 0, 0.4);
             font-size: 0.85rem;
@@ -34,7 +35,7 @@
             font-weight: 600;
             letter-spacing: 0.5px;
         }
-        .top-bar a { color: #ffffff; text-decoration: none; margin-left: 18px; transition: color 0.2s; }
+        .top-bar a { color: #ffffff; text-decoration: none; margin-left: 18px; }
         .top-bar a:hover { color: #ffcd00; }
 
         .navbar {
@@ -43,16 +44,17 @@
             padding: 15px 0;
             border-bottom: 1px solid rgba(255, 255, 255, 0.15);
         }
-        .navbar-brand { font-weight: 800; font-size: 1.4rem; color: #ffffff !important; cursor: pointer; }
+        .navbar-brand { font-weight: 800; font-size: 1.4rem; color: #ffffff !important; }
         .nav-link {
             color: #ffffff !important; font-weight: 600; text-transform: uppercase;
-            font-size: 0.85rem; letter-spacing: 1px; margin-left: 20px; cursor: pointer;
+            font-size: 0.85rem; letter-spacing: 1px; margin-left: 20px;
         }
-        .nav-link.active { color: #ffcd00 !important; text-decoration: underline; text-underline-offset: 6px; }
+        .nav-link:hover { color: #ffcd00 !important; }
 
-        .view-section { display: none; padding: 30px 0; animation: fadeIn 0.3s ease-in-out; }
-        .view-section.active-view { display: block; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        /* Contenedores de secciones independientes */
+        .section-padding {
+            padding: 60px 0 30px 0;
+        }
 
         .main-card-container {
             background-color: rgba(0, 0, 0, 0.7);
@@ -61,7 +63,6 @@
             border-radius: 24px;
             border: 1px solid rgba(255, 255, 255, 0.2);
             box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-            margin-bottom: 30px;
         }
         
         .hero-title {
@@ -82,11 +83,11 @@
             border: 1px solid rgba(255,255,255,0.2);
         }
 
-        /* Contenedor del iframe para la Central de Partidos */
+        /* Central de Partidos Iframe */
         .iframe-container {
             position: relative;
             width: 100%;
-            height: 700px;
+            height: 650px;
             border-radius: 16px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
@@ -99,30 +100,7 @@
             border: none;
         }
 
-        /* Tarjetas de Sedes Optimizadas */
-        .venue-country-title {
-            border-left: 5px solid #ffcd00;
-            padding-left: 10px;
-            margin-top: 25px;
-            margin-bottom: 15px;
-            font-weight: 700;
-            text-transform: uppercase;
-        }
-        .venue-box {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 14px;
-            padding: 16px;
-            height: 100%;
-            transition: transform 0.2s, background 0.2s;
-        }
-        .venue-box:hover {
-            transform: translateY(-3px);
-            background: rgba(255, 255, 255, 0.15);
-        }
-        .venue-box h5 { font-weight: 700; color: #ffcd00; margin-bottom: 4px; }
-        
-        /* Tablas de Estadísticas Hechas a Mano Estilo Premium */
+        /* Estilo Nativo Premium para Estadísticas */
         .table-custom-container {
             background: rgba(33, 37, 41, 0.95);
             border: 1px solid rgba(255, 255, 255, 0.15);
@@ -150,21 +128,38 @@
             text-align: center;
             font-weight: 700;
             text-transform: uppercase;
-            font-size: 0.85rem;
             border-bottom: 2px solid rgba(255, 255, 255, 0.15);
+            padding: 12px;
         }
         .table-native td {
             text-align: center;
             vertical-align: middle;
-            font-weight: 500;
+            font-weight: 600;
             border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-            padding: 12px;
-        }
-        .table-native tbody tr:hover {
-            background-color: rgba(255, 255, 255, 0.05);
+            padding: 14px;
         }
         .row-qualified { background-color: rgba(0, 150, 64, 0.15); }
         .row-eliminated { background-color: rgba(218, 41, 28, 0.15); }
+
+        /* Estructura de Sedes */
+        .venue-country-title {
+            border-left: 5px solid #ffcd00;
+            padding-left: 10px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 1.25rem;
+            color: #ffcd00;
+        }
+        .venue-box {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 14px;
+            padding: 16px;
+            height: 100%;
+        }
+        .venue-box h5 { font-weight: 700; color: #ffffff; margin-bottom: 4px; }
     </style>
 </head>
 <body>
@@ -176,34 +171,34 @@
                 <a href="mailto:INFO2026@GMAIL.COM"><i class="bi bi-envelope-fill text-warning"></i> INFO2026@GMAIL.COM</a>
             </div>
             <div class="d-flex gap-3 fs-5">
-                <a href="#" class="p-0 m-0"><i class="bi bi-facebook"></i></a>
-                <a href="#" class="p-0 m-0"><i class="bi bi-instagram"></i></a>
-                <a href="#" class="p-0 m-0"><i class="bi bi-twitter-x"></i></a>
-                <a href="#" class="p-0 m-0"><i class="bi bi-youtube"></i></a>
+                <a href="#"><i class="bi bi-facebook"></i></a>
+                <a href="#"><i class="bi bi-instagram"></i></a>
+                <a href="#"><i class="bi bi-twitter-x"></i></a>
+                <a href="#"><i class="bi bi-youtube"></i></a>
             </div>
         </div>
     </div>
 
     <nav class="navbar navbar-expand-lg sticky-top">
         <div class="container">
-            <a class="navbar-brand" onclick="cambiarVista('inicio')"><i class="bi bi-trophy-fill text-warning"></i> MUNDIAL 2026</a>
+            <a class="navbar-brand" href="#inicio"><i class="bi bi-trophy-fill text-warning"></i> FIFA WORLD CUP 2026</a>
             <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link active" id="menu-inicio" onclick="cambiarVista('inicio')">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link" id="menu-partidos" onclick="cambiarVista('partidos')">Partidos</a></li>
-                    <li class="nav-item"><a class="nav-link" id="menu-tablas" onclick="cambiarVista('tablas')">Estadísticas</a></li>
-                    <li class="nav-item"><a class="nav-link" id="menu-sedes" onclick="cambiarVista('sedes')">Sedes</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#partidos">Partidos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#estadisticas">Estadísticas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#sedes">Sedes</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <div id="vista-inicio" class="view-section active-view">
+    <div id="inicio" class="section-padding">
         <div class="container">
-            <div class="main-card-container text-center mb-4">
+            <div class="main-card-container text-center">
                 <h1 class="hero-title">COPA MUNDIAL DE LA FIFA 2026™</h1>
                 <p class="lead fw-bold text-warning">El torneo más grande de la historia del fútbol</p>
                 <hr class="my-4 border-light opacity-25">
@@ -215,31 +210,31 @@
                     <div class="col-auto"><div class="info-badge">🔴 16 Ciudades Sedes</div></div>
                 </div>
 
-                <p class="text-start fs-5 lh-base">
+                <p class="text-start fs-5 lh-base m-0">
                     La <b>Copa Mundial de la FIFA 2026™</b> marca una evolución sin precedentes en el deporte rey. Por primera vez en la historia, el certamen cuenta con la participación de <b>48 selecciones nacionales</b> distribuidas estratégicamente en 12 grupos de 4 equipos cada uno. La competencia se extiende a lo largo de Norteamérica, unificando la infraestructura de Canadá, Estados Unidos y México.
                 </p>
             </div>
         </div>
     </div>
 
-    <div id="vista-partidos" class="view-section">
+    <div id="partidos" class="section-padding">
         <div class="container">
             <div class="main-card-container">
                 <h2 class="mb-4 fw-bold text-uppercase text-center text-warning"><i class="bi bi-calendar3"></i> Partidos y Resultados Oficiales</h2>
                 <p class="text-center text-white-50 mb-4">Información en tiempo real de los encuentros del Mundial mediante nuestra central integrada.</p>
                 
                 <div class="iframe-container">
-                    <iframe src="https://m.livesoccertv.com/es/competitions/international/world-cup/" title="Calendario Oficial de Partidos"></iframe>
+                    <iframe src="https://m.livesoccertv.com/es/competitions/international/world-cup/" title="Calendario Oficial"></iframe>
                 </div>
             </div>
         </div>
     </div>
 
-    <div id="vista-tablas" class="view-section">
+    <div id="estadisticas" class="section-padding">
         <div class="container">
             <div class="main-card-container">
-                <h2 class="mb-4 fw-bold text-uppercase text-center text-warning"><i class="bi bi-bar-chart-line-fill"></i> Central de Estadísticas Oficiales</h2>
-                <p class="text-center text-white-50 mb-5">Rendimiento, clasificaciones y tablas de líderes del torneo procesadas en tiempo real.</p>
+                <h2 class="mb-4 fw-bold text-uppercase text-center text-warning"><i class="bi bi-bar-chart-line-fill"></i> Central de Estadísticas Nativa</h2>
+                <p class="text-center text-white-50 mb-5">Rendimiento, clasificaciones oficiales y tablas de líderes maquetadas directamente en el sistema.</p>
 
                 <div class="table-custom-container">
                     <div class="table-custom-title"><i class="bi bi-table"></i> Tabla de Posiciones - Grupo A</div>
@@ -303,28 +298,18 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
 
-    <div id="vista-sedes" class="view-section">
+    <div id="sedes" class="section-padding">
         <div class="container">
             <div class="main-card-container">
                 <h2 class="fw-bold text-uppercase mb-2 text-center text-warning"><i class="bi bi-geo-alt-fill"></i> Sedes Oficiales del Mundial</h2>
-                <p class="text-center text-white-50 mb-4">Los 16 estadios e infraestructuras de vanguardia repartidos en los 3 países anfitriones.</p>
+                <p class="text-center text-white-50 mb-4">Los 16 estadios globales distribuidos en los 3 países anfitriones.</p>
                 
                 <div class="venue-country-title">🇺🇸 Estados Unidos</div>
                 <div class="row g-3">
-                    <div class="col-md-4 col-sm-6"><div class="venue-box"><h5>Nueva York / Nueva Jersey</h5><p class="small text-white-50 m-0">MetLife Stadium<br>Capacidad: 82,500</p></div></div>
-                    <div class="col-md-4 col-sm-6"><div class="venue-box"><h5>Los Ángeles</h5><p class="small text-white-50 m-0">SoFi Stadium<br>Capacidad: 70,240</p></div></div>
-                    <div class="col-md-4 col-sm-6"><div class="venue-box"><h5>Dallas</h5><p class="small text-white-50 m-0">AT&T Stadium<br>Capacidad: 80,000</p></div></div>
-                    <div class="col-md-4 col-sm-6"><div class="venue-box"><h5>Kansas City</h5><p class="small text-white-50 m-0">Arrowhead Stadium<br>Capacidad: 76,416</p></div></div>
-                    <div class="col-md-4 col-sm-6"><div class="venue-box"><h5>Houston</h5><p class="small text-white-50 m-0">NRG Stadium<br>Capacidad: 72,220</p></div></div>
-                    <div class="col-md-4 col-sm-6"><div class="venue-box"><h5>Atlanta</h5><p class="small text-white-50 m-0">Mercedes-Benz Stadium<br>Capacidad: 71,000</p></div></div>
-                    <div class="col-md-4 col-sm-6"><div class="venue-box"><h5>Filadelfia</h5><p class="small text-white-50 m-0">Lincoln Financial Field<br>Capacidad: 69,796</p></div></div>
-                    <div class="col-md-4 col-sm-6"><div class="venue-box"><h5>Seattle</h5><p class="small text-white-50 m-0">Lumen Field<br>Capacidad: 69,000</p></div></div>
-                    <div class="col-md-4 col-sm-6"><div class="venue-box"><h5>San Francisco</h5><p class="small text-white-50 m-0">Levi's Stadium<br>Capacidad: 68,500</p></div></div>
-                    <div class="col-md-4 col-sm-6"><div class="venue-box"><h5>Boston</h5><p class="small text-white-50 m-0">Gillette Stadium<br>Capacidad: 65,878</p></div></div>
-                    <div class="col-md-4 col-sm-6"><div class="venue-box"><h5>Miami</h5><p class="small text-white-50 m-0">Hard Rock Stadium<br>Capacidad: 64,767</p></div></div>
-                </div>
+                    <div class="col-md-4 col-sm-6"><div class="venue-box"><h5>Nueva York / Nueva Jersey</h5><p class="small text-white-50 m-0">MetLife Stadium • Cap: 82,500</p></div></div>
+                    <div class="col-md-4 col-sm-6"><div class="venue-box"><h5>Los Ángeles</h5><p class="small text-white-50 m-0">SoFi Stadium • Cap: 70,240</p></div></div>
+                    <div class="col-md-4 col-sm-6"><div class="venue-box"><h5>Dallas</h5><p class="small text-white-50 m
