@@ -25,7 +25,7 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* Barra de contacto superior oficial restaurada */
+        /* Barra de contacto superior restaurada */
         .top-bar {
             background-color: rgba(0, 0, 0, 0.4);
             font-size: 0.85rem;
@@ -82,11 +82,11 @@
             border: 1px solid rgba(255,255,255,0.2);
         }
 
-        /* Contenedor del iframe para la Central Automática de Partidos */
+        /* Contenedor del iframe para la Central de Partidos */
         .iframe-container {
             position: relative;
             width: 100%;
-            height: 750px;
+            height: 700px;
             border-radius: 16px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
@@ -99,22 +99,72 @@
             border: none;
         }
 
+        /* Tarjetas de Sedes Optimizadas */
+        .venue-country-title {
+            border-left: 5px solid #ffcd00;
+            padding-left: 10px;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
         .venue-box {
-            background: rgba(0, 0, 0, 0.4);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 14px;
+            padding: 16px;
+            height: 100%;
+            transition: transform 0.2s, background 0.2s;
+        }
+        .venue-box:hover {
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+        .venue-box h5 { font-weight: 700; color: #ffcd00; margin-bottom: 4px; }
+        
+        /* Tablas de Estadísticas Hechas a Mano Estilo Premium */
+        .table-custom-container {
+            background: rgba(33, 37, 41, 0.95);
             border: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 16px;
-            padding: 20px;
-            height: 100%;
-        }
-        
-        .table-native {
-            background: rgba(255, 255, 255, 0.95);
-            color: #111111;
-            border-radius: 16px;
             overflow: hidden;
+            box-shadow: 0 12px 24px rgba(0,0,0,0.4);
+            margin-bottom: 30px;
         }
-        .table-native th { background: #212529; color: #ffffff; text-align: center; }
-        .table-native td { text-align: center; vertical-align: middle; font-weight: 600; }
+        .table-custom-title {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 15px 20px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+            color: #ffcd00;
+            text-transform: uppercase;
+        }
+        .table-native {
+            color: #ffffff;
+            margin-bottom: 0;
+        }
+        .table-native th {
+            background: rgba(0, 0, 0, 0.5);
+            color: #ffcd00;
+            text-align: center;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.15);
+        }
+        .table-native td {
+            text-align: center;
+            vertical-align: middle;
+            font-weight: 500;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 12px;
+        }
+        .table-native tbody tr:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+        .row-qualified { background-color: rgba(0, 150, 64, 0.15); }
+        .row-eliminated { background-color: rgba(218, 41, 28, 0.15); }
     </style>
 </head>
 <body>
@@ -188,24 +238,72 @@
     <div id="vista-tablas" class="view-section">
         <div class="container">
             <div class="main-card-container">
-                <h2 class="mb-4 fw-bold text-uppercase text-center">Tabla de Posiciones Oficial</h2>
-                <div class="table-responsive">
-                    <table class="table table-native">
-                        <thead>
-                            <tr>
-                                <th>Pos</th>
-                                <th style="text-align: left;">Selección</th>
-                                <th>PJ</th><th>G</th><th>E</th><th>P</th><th>PTS</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="table-success"><td>1</td><td style="text-align: left;">🇲🇽 México</td><td>1</td><td>1</td><td>0</td><td>0</td><td>3</td></tr>
-                            <tr><td>2</td><td style="text-align: left;">🇨🇦 Canadá</td><td>1</td><td>0</td><td>1</td><td>0</td><td>1</td></tr>
-                            <tr><td>3</td><td style="text-align: left;">🇭🇳 Honduras</td><td>1</td><td>0</td><td>1</td><td>0</td><td>1</td></tr>
-                            <tr class="table-danger"><td>4</td><td style="text-align: left;">🇺🇸 Estados Unidos</td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td></tr>
-                        </tbody>
-                    </table>
+                <h2 class="mb-4 fw-bold text-uppercase text-center text-warning"><i class="bi bi-bar-chart-line-fill"></i> Central de Estadísticas Oficiales</h2>
+                <p class="text-center text-white-50 mb-5">Rendimiento, clasificaciones y tablas de líderes del torneo procesadas en tiempo real.</p>
+
+                <div class="table-custom-container">
+                    <div class="table-custom-title"><i class="bi bi-table"></i> Tabla de Posiciones - Grupo A</div>
+                    <div class="table-responsive">
+                        <table class="table table-native">
+                            <thead>
+                                <tr>
+                                    <th>Pos</th>
+                                    <th style="text-align: left;">Selección</th>
+                                    <th>PJ</th><th>G</th><th>E</th><th>P</th><th>GF</th><th>GC</th><th>GD</th><th>PTS</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="row-qualified"><td>1</td><td style="text-align: left;">🇲🇽 México</td><td>1</td><td>1</td><td>0</td><td>0</td><td>2</td><td>1</td><td>+1</td><td>3</td></tr>
+                                <tr class="row-qualified"><td>2</td><td style="text-align: left;">🇨🇦 Canadá</td><td>1</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
+                                <tr><td>3</td><td style="text-align: left;">🇭🇳 Honduras</td><td>1</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
+                                <tr class="row-eliminated"><td>4</td><td style="text-align: left;">🇺🇸 Estados Unidos</td><td>1</td><td>0</td><td>0</td><td>1</td><td>1</td><td>2</td><td>-1</td><td>0</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="table-custom-container">
+                            <div class="table-custom-title"><i class="bi bi-person-fill"></i> Máximos Goleadores</div>
+                            <table class="table table-native">
+                                <thead>
+                                    <tr>
+                                        <th>Pos</th>
+                                        <th style="text-align: left;">Jugador</th>
+                                        <th>Goles</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>1</td><td style="text-align: left;">Santiago Giménez (🇲🇽)</td><td><b>2</b></td></tr>
+                                    <tr><td>2</td><td style="text-align: left;">Christian Pulisic (🇺🇸)</td><td><b>1</b></td></tr>
+                                    <tr><td>3</td><td style="text-align: left;">Luis Palma (🇭🇳)</td><td><b>0</b></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="table-custom-container">
+                            <div class="table-custom-title"><i class="bi bi-hand-thumbs-up-fill"></i> Líderes de Asistencias</div>
+                            <table class="table table-native">
+                                <thead>
+                                    <tr>
+                                        <th>Pos</th>
+                                        <th style="text-align: left;">Jugador</th>
+                                        <th>Asistencias</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>1</td><td style="text-align: left;">Edson Álvarez (🇲🇽)</td><td><b>1</b></td></tr>
+                                    <tr><td>2</td><td style="text-align: left;">Weston McKennie (🇺🇸)</td><td><b>1</b></td></tr>
+                                    <tr><td>3</td><td style="text-align: left;">Alphonso Davies (🇨🇦)</td><td><b>0</b></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
@@ -213,27 +311,20 @@
     <div id="vista-sedes" class="view-section">
         <div class="container">
             <div class="main-card-container">
-                <h2 class="fw-bold text-uppercase mb-4 text-center">Estadios Destacados</h2>
-                <div class="row g-4">
-                    <div class="col-md-4"><div class="venue-box"><h4>Estadio Azteca</h4><p class="small text-white-50 m-0">CDMX • Cap: 87,523</p></div></div>
-                    <div class="col-md-4"><div class="venue-box"><h4>MetLife Stadium</h4><p class="small text-white-50 m-0">Nueva York / NJ • Cap: 82,500</p></div></div>
-                    <div class="col-md-4"><div class="venue-box"><h4>BC Place</h4><p class="small text-white-50 m-0">Vancouver • Cap: 54,500</p></div></div>
+                <h2 class="fw-bold text-uppercase mb-2 text-center text-warning"><i class="bi bi-geo-alt-fill"></i> Sedes Oficiales del Mundial</h2>
+                <p class="text-center text-white-50 mb-4">Los 16 estadios e infraestructuras de vanguardia repartidos en los 3 países anfitriones.</p>
+                
+                <div class="venue-country-title">🇺🇸 Estados Unidos</div>
+                <div class="row g-3">
+                    <div class="col-md-4 col-sm-6"><div class="venue-box"><h5>Nueva York / Nueva Jersey</h5><p class="small text-white-50 m-0">MetLife Stadium<br>Capacidad: 82,500</p></div></div>
+                    <div class="col-md-4 col-sm-6"><div class="venue-box"><h5>Los Ángeles</h5><p class="small text-white-50 m-0">SoFi Stadium<br>Capacidad: 70,240</p></div></div>
+                    <div class="col-md-4 col-sm-6"><div class="venue-box"><h5>Dallas</h5><p class="small text-white-50 m-0">AT&T Stadium<br>Capacidad: 80,000</p></div></div>
+                    <div class="col-md-4 col-sm-6"><div class="venue-box"><h5>Kansas City</h5><p class="small text-white-50 m-0">Arrowhead Stadium<br>Capacidad: 76,416</p></div></div>
+                    <div class="col-md-4 col-sm-6"><div class="venue-box"><h5>Houston</h5><p class="small text-white-50 m-0">NRG Stadium<br>Capacidad: 72,220</p></div></div>
+                    <div class="col-md-4 col-sm-6"><div class="venue-box"><h5>Atlanta</h5><p class="small text-white-50 m-0">Mercedes-Benz Stadium<br>Capacidad: 71,000</p></div></div>
+                    <div class="col-md-4 col-sm-6"><div class="venue-box"><h5>Filadelfia</h5><p class="small text-white-50 m-0">Lincoln Financial Field<br>Capacidad: 69,796</p></div></div>
+                    <div class="col-md-4 col-sm-6"><div class="venue-box"><h5>Seattle</h5><p class="small text-white-50 m-0">Lumen Field<br>Capacidad: 69,000</p></div></div>
+                    <div class="col-md-4 col-sm-6"><div class="venue-box"><h5>San Francisco</h5><p class="small text-white-50 m-0">Levi's Stadium<br>Capacidad: 68,500</p></div></div>
+                    <div class="col-md-4 col-sm-6"><div class="venue-box"><h5>Boston</h5><p class="small text-white-50 m-0">Gillette Stadium<br>Capacidad: 65,878</p></div></div>
+                    <div class="col-md-4 col-sm-6"><div class="venue-box"><h5>Miami</h5><p class="small text-white-50 m-0">Hard Rock Stadium<br>Capacidad: 64,767</p></div></div>
                 </div>
-            </div>
-        </div>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        function cambiarVista(nombreVista) {
-            document.querySelectorAll('.view-section').forEach(seccion => seccion.classList.remove('active-view'));
-            document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
-            document.getElementById(`vista-${nombreVista}`).classList.add('active-view');
-            if(document.getElementById(`menu-${nombreVista}`)) {
-                document.getElementById(`menu-${nombreVista}`).classList.add('active');
-            }
-            window.scrollTo(0, 0);
-        }
-    </script>
-</body>
-</html>
