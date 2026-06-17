@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Copa Mundial de la FIFA 2026™ | Portal Oficial Informativo</title>
+    <title>Copa Mundial de la FIFA 2026™ | Portal Supremo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
     
@@ -25,8 +25,20 @@
             100% { background-position: 0% 50%; }
         }
 
+        /* Barra de contacto superior oficial restaurada */
+        .top-bar {
+            background-color: rgba(0, 0, 0, 0.4);
+            font-size: 0.85rem;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        .top-bar a { color: #ffffff; text-decoration: none; margin-left: 18px; transition: color 0.2s; }
+        .top-bar a:hover { color: #ffcd00; }
+
         .navbar {
-            background-color: rgba(0, 0, 0, 0.5) !important;
+            background-color: rgba(0, 0, 0, 0.55) !important;
             backdrop-filter: blur(12px);
             padding: 15px 0;
             border-bottom: 1px solid rgba(255, 255, 255, 0.15);
@@ -38,17 +50,17 @@
         }
         .nav-link.active { color: #ffcd00 !important; text-decoration: underline; text-underline-offset: 6px; }
 
-        .view-section { display: none; padding: 40px 0; animation: fadeIn 0.3s ease-in-out; }
+        .view-section { display: none; padding: 30px 0; animation: fadeIn 0.3s ease-in-out; }
         .view-section.active-view { display: block; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
         .main-card-container {
-            background-color: rgba(0, 0, 0, 0.65);
+            background-color: rgba(0, 0, 0, 0.7);
             backdrop-filter: blur(12px);
             padding: 40px;
             border-radius: 24px;
             border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
             margin-bottom: 30px;
         }
         
@@ -70,31 +82,29 @@
             border: 1px solid rgba(255,255,255,0.2);
         }
 
+        /* Contenedor del iframe para la Central Automática de Partidos */
+        .iframe-container {
+            position: relative;
+            width: 100%;
+            height: 750px;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            background: #ffffff;
+        }
+        .iframe-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
         .venue-box {
             background: rgba(0, 0, 0, 0.4);
             border: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 16px;
             padding: 20px;
             height: 100%;
-            transition: all 0.3s;
-        }
-        .venue-box:hover { background: rgba(255, 255, 255, 0.1); transform: translateY(-3px); border-color: #ffcd00; }
-
-        .fact-card {
-            background: linear-gradient(135deg, rgba(255,205,0,0.1) 0%, rgba(0,0,0,0.4) 100%);
-            border-left: 5px solid #ffcd00;
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 15px;
-        }
-
-        .match-card-native {
-            background: rgba(255, 255, 255, 0.95);
-            color: #111111;
-            border-radius: 16px;
-            padding: 15px;
-            margin-bottom: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
         
         .table-native {
@@ -105,35 +115,37 @@
         }
         .table-native th { background: #212529; color: #ffffff; text-align: center; }
         .table-native td { text-align: center; vertical-align: middle; font-weight: 600; }
-
-        .nav-pills .nav-link {
-            background: rgba(255,255,255,0.1);
-            color: white !important;
-            margin: 5px;
-            border-radius: 8px;
-        }
-        .nav-pills .nav-link.active {
-            background: #ffcd00 !important;
-            color: black !important;
-            text-decoration: none !important;
-        }
     </style>
 </head>
 <body>
 
+    <div class="top-bar">
+        <div class="container d-flex justify-content-between align-items-center flex-wrap gap-2">
+            <div>
+                <span><i class="bi bi-telephone-fill text-warning"></i> +504 9397 9145</span>
+                <a href="mailto:INFO2026@GMAIL.COM"><i class="bi bi-envelope-fill text-warning"></i> INFO2026@GMAIL.COM</a>
+            </div>
+            <div class="d-flex gap-3 fs-5">
+                <a href="#" class="p-0 m-0"><i class="bi bi-facebook"></i></a>
+                <a href="#" class="p-0 m-0"><i class="bi bi-instagram"></i></a>
+                <a href="#" class="p-0 m-0"><i class="bi bi-twitter-x"></i></a>
+                <a href="#" class="p-0 m-0"><i class="bi bi-youtube"></i></a>
+            </div>
+        </div>
+    </div>
+
     <nav class="navbar navbar-expand-lg sticky-top">
         <div class="container">
-            <a class="navbar-brand" onclick="cambiarVista('inicio')"><i class="bi bi-trophy-fill text-warning"></i> FIFA WORLD CUP 2026</a>
+            <a class="navbar-brand" onclick="cambiarVista('inicio')"><i class="bi bi-trophy-fill text-warning"></i> MUNDIAL 2026</a>
             <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link active" id="menu-inicio" onclick="cambiarVista('inicio')">Información General</a></li>
-                    <li class="nav-item"><a class="nav-link" id="menu-partidos" onclick="cambiarVista('partidos')">104 Partidos</a></li>
-                    <li class="nav-item"><a class="nav-link" id="menu-tablas" onclick="cambiarVista('tablas')">Tablas de Grupos</a></li>
-                    <li class="nav-item"><a class="nav-link" id="menu-stats" onclick="cambiarVista('stats')">Líderes Oficiales</a></li>
-                    <li class="nav-item"><a class="nav-link" id="menu-sedes" onclick="cambiarVista('sedes')">16 Sedes Reales</a></li>
+                    <li class="nav-item"><a class="nav-link active" id="menu-inicio" onclick="cambiarVista('inicio')">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" id="menu-partidos" onclick="cambiarVista('partidos')">Partidos</a></li>
+                    <li class="nav-item"><a class="nav-link" id="menu-tablas" onclick="cambiarVista('tablas')">Estadísticas</a></li>
+                    <li class="nav-item"><a class="nav-link" id="menu-sedes" onclick="cambiarVista('sedes')">Sedes</a></li>
                 </ul>
             </div>
         </div>
@@ -142,19 +154,19 @@
     <div id="vista-inicio" class="view-section active-view">
         <div class="container">
             <div class="main-card-container text-center mb-4">
-                <h1 class="hero-title">Copa Mundial de la FIFA 2026™</h1>
+                <h1 class="hero-title">COPA MUNDIAL DE LA FIFA 2026™</h1>
                 <p class="lead fw-bold text-warning">El torneo más grande de la historia del fútbol</p>
                 <hr class="my-4 border-light opacity-25">
                 
                 <div class="row g-3 justify-content-center mb-4">
-                    <div class="col-auto"><div class="info-badge"><i class="bi bi-flag-fill text-success"></i> 3 Países Anfitriones</div></div>
-                    <div class="col-auto"><div class="info-badge"><i class="bi bi-people-fill text-info"></i> 48 Selecciones Clasificadas</div></div>
-                    <div class="col-auto"><div class="info-badge"><i class="bi bi-calendar-check text-warning"></i> 104 Partidos Totales</div></div>
-                    <div class="col-auto"><div class="info-badge"><i class="bi bi-geo-alt-fill text-danger"></i> 16 Ciudades Sedes</div></div>
+                    <div class="col-auto"><div class="info-badge">🟢 3 Países Anfitriones</div></div>
+                    <div class="col-auto"><div class="info-badge">🔵 48 Selecciones Clasificadas</div></div>
+                    <div class="col-auto"><div class="info-badge">🟡 104 Partidos Totales</div></div>
+                    <div class="col-auto"><div class="info-badge">🔴 16 Ciudades Sedes</div></div>
                 </div>
 
                 <p class="text-start fs-5 lh-base">
-                    La <b>Copa Mundial de la FIFA 2026™</b> marca una evolución sin precedentes en el deporte rey. Por primera vez en la historia, el certamen cuenta con la participación de <b>48 selecciones nacionales</b> en lugar de las tradicionales 32, distribuidas estratégicamente en 12 grupos de 4 equipos cada uno. La competencia se extiende a lo largo de Norteamérica, unificando la infraestructura deportiva de vanguardia de Canadá, Estados Unidos y México para albergar un formato de eliminación directa expandido que arranca desde los Dieciseisavos de Final.
+                    La <b>Copa Mundial de la FIFA 2026™</b> marca una evolución sin precedentes en el deporte rey. Por primera vez en la historia, el certamen cuenta con la participación de <b>48 selecciones nacionales</b> distribuidas estratégicamente en 12 grupos de 4 equipos cada uno. La competencia se extiende a lo largo de Norteamérica, unificando la infraestructura de Canadá, Estados Unidos y México.
                 </p>
             </div>
         </div>
@@ -163,29 +175,65 @@
     <div id="vista-partidos" class="view-section">
         <div class="container">
             <div class="main-card-container">
-                <h2 class="section-title mb-4 fw-bold text-uppercase text-warning"><i class="bi bi-calendar3"></i> Calendario Completo de los 104 Partidos</h2>
+                <h2 class="mb-4 fw-bold text-uppercase text-center text-warning"><i class="bi bi-calendar3"></i> Partidos y Resultados Oficiales</h2>
+                <p class="text-center text-white-50 mb-4">Información en tiempo real de los encuentros del Mundial mediante nuestra central integrada.</p>
                 
-                <ul class="nav nav-pills mb-4 justify-content-center" id="pills-tab" role="tablist">
-                    <li class="nav-item"><button class="nav-link active" data-bs-toggle="pill" data-bs-target="#jornada1">Jornada 1 (Partidos 1-24)</button></li>
-                    <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#jornada2">Jornada 2 (Partidos 25-48)</button></li>
-                    <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#jornada3">Jornada 3 (Partidos 49-72)</button></li>
-                    <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#eliminatorias">Fases Finales (73-104)</button></li>
-                </ul>
+                <div class="iframe-container">
+                    <iframe src="https://m.livesoccertv.com/es/competitions/international/world-cup/" title="Calendario Oficial de Partidos"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
 
-                <div class="tab-content">
-                    <div class="tab-pane fade show active" id="jornada1">
-                        <div class="row g-3">
-                            <div class="col-md-4"><div class="match-card-native"><b>P1 (11 Jun):</b> 🇲🇽 México vs 🇿🇦 Sudáfrica</div></div>
-                            <div class="col-md-4"><div class="match-card-native"><b>P2 (11 Jun):</b> 🇰🇷 Corea Sur vs 🇨🇿 Chequia</div></div>
-                            <div class="col-md-4"><div class="match-card-native"><b>P3 (12 Jun):</b> 🇨🇦 Canadá vs 🇧🇦 Bosnia</div></div>
-                            <div class="col-md-4"><div class="match-card-native"><b>P4 (12 Jun):</b> 🇺🇸 EE. UU. vs 🇵🇾 Paraguay</div></div>
-                            <div class="col-md-4"><div class="match-card-native"><b>P5 (13 Jun):</b> 🇭🇹 Haití vs 🏴󠁧󠁢󠁳󠁣󠁴󠁿 Escocia</div></div>
-                            <div class="col-md-4"><div class="match-card-native"><b>P6 (13 Jun):</b> 🇦🇺 Australia vs 🇹🇷 Turquía</div></div>
-                            <div class="col-md-4"><div class="match-card-native"><b>P7 (13 Jun):</b> 🇧🇷 Brasil vs 🇲🇦 Marruecos</div></div>
-                            <div class="col-md-4"><div class="match-card-native"><b>P8 (13 Jun):</b> 🇶🇦 Catar vs 🇨🇭 Suiza</div></div>
-                            <div class="col-md-4"><div class="match-card-native"><b>P9 (14 Jun):</b> 🇨🇮 C. Marfil vs 🇪🇨 Ecuador</div></div>
-                            <div class="col-md-4"><div class="match-card-native"><b>P10 (14 Jun):</b> 🇩🇪 Alemania vs 🇨🇼 Curazao</div></div>
-                            <div class="col-md-4"><div class="match-card-native"><b>P11 (14 Jun):</b> 🇳🇱 Países Bajos vs 🇯🇵 Japón</div></div>
-                            <div class="col-md-4"><div class="match-card-native"><b>P12 (14 Jun):</b> 🇸🇪 Suecia vs 🇹🇳 Túnez</div></div>
-                            <div class="col-md-4"><div class="match-card-native"><b>P13 (15 Jun):</b> 🇸🇦 Arabia S. vs 🇺🇾 Uruguay</div></div>
-                            <div class="col-md-4"><div class="match
+    <div id="vista-tablas" class="view-section">
+        <div class="container">
+            <div class="main-card-container">
+                <h2 class="mb-4 fw-bold text-uppercase text-center">Tabla de Posiciones Oficial</h2>
+                <div class="table-responsive">
+                    <table class="table table-native">
+                        <thead>
+                            <tr>
+                                <th>Pos</th>
+                                <th style="text-align: left;">Selección</th>
+                                <th>PJ</th><th>G</th><th>E</th><th>P</th><th>PTS</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="table-success"><td>1</td><td style="text-align: left;">🇲🇽 México</td><td>1</td><td>1</td><td>0</td><td>0</td><td>3</td></tr>
+                            <tr><td>2</td><td style="text-align: left;">🇨🇦 Canadá</td><td>1</td><td>0</td><td>1</td><td>0</td><td>1</td></tr>
+                            <tr><td>3</td><td style="text-align: left;">🇭🇳 Honduras</td><td>1</td><td>0</td><td>1</td><td>0</td><td>1</td></tr>
+                            <tr class="table-danger"><td>4</td><td style="text-align: left;">🇺🇸 Estados Unidos</td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="vista-sedes" class="view-section">
+        <div class="container">
+            <div class="main-card-container">
+                <h2 class="fw-bold text-uppercase mb-4 text-center">Estadios Destacados</h2>
+                <div class="row g-4">
+                    <div class="col-md-4"><div class="venue-box"><h4>Estadio Azteca</h4><p class="small text-white-50 m-0">CDMX • Cap: 87,523</p></div></div>
+                    <div class="col-md-4"><div class="venue-box"><h4>MetLife Stadium</h4><p class="small text-white-50 m-0">Nueva York / NJ • Cap: 82,500</p></div></div>
+                    <div class="col-md-4"><div class="venue-box"><h4>BC Place</h4><p class="small text-white-50 m-0">Vancouver • Cap: 54,500</p></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function cambiarVista(nombreVista) {
+            document.querySelectorAll('.view-section').forEach(seccion => seccion.classList.remove('active-view'));
+            document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+            document.getElementById(`vista-${nombreVista}`).classList.add('active-view');
+            if(document.getElementById(`menu-${nombreVista}`)) {
+                document.getElementById(`menu-${nombreVista}`).classList.add('active');
+            }
+            window.scrollTo(0, 0);
+        }
+    </script>
+</body>
+</html>
